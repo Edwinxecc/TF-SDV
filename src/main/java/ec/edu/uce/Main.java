@@ -1,9 +1,12 @@
 package ec.edu.uce;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import ec.edu.uce.dominio.Company;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("hello");
+
+        Company company1 = Company.getInstance();
+        System.out.println(company1.getCompanyName());
+        
     }
 }
