@@ -23,4 +23,9 @@ public class Product {
     public String getCode() {
         return code;
     }
+
+    @Override
+    public String toString() {
+        return code + " | " + name + " | " + stock;
+    }
 }
