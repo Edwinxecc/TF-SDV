@@ -7,6 +7,7 @@ public class Main {
 
         Company company1 = Company.getInstance();
         System.out.println(company1.getCompanyName());
-        
+        System.out.println(company1.createUser("Edwin", "edcc4313", 29));
+
     }
 }

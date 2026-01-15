@@ -26,11 +26,16 @@ public class Company {
         if (name.length() >= 2 && stock > 0){
             new Product(name, stock);
             return true;
-        }else {
-            return false;
         }
+        return false;
     }
 
-
+    public Boolean createUser(String name, String password, int age) {
+        if (name.length() >= 3 && password.length() >= 8 && age >= 5){
+            new User(name, age, password);
+            return true;
+        }
+        return false;
+    }
 
 }
