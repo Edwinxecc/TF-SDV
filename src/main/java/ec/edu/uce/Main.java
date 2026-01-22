@@ -3,20 +3,30 @@ package ec.edu.uce;
 import ec.edu.uce.dominio.Company;
 import ec.edu.uce.dominio.Product;
 import ec.edu.uce.dominio.User;
+import ec.edu.uce.gui.Login;
+
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        Company company1 = Company.getInstance();
-        System.out.println(company1.getCompanyName());
-        //System.out.println(company1.createUser("Edwin", "edcc4313", 29));
+        Company com = Company.getInstance();
+
+        // para el login no cambiar por favor jaja
+        JFrame frame = new JFrame("Login");
+        frame.setContentPane(new Login().loginPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        frame.setSize(500,500);
+        frame.setVisible(true);
+
+        // pagina pricipal
 
 
-        company1.createProduct(new Product("Papas fritas", 16));
-        company1.createUser(new User("Edwin", 29, "edcc4313"));
-
-        System.out.println(company1.getUsers());
-        System.out.println(company1.getProducts());
-
+        if () {
+            JOptionPane.showMessageDialog(null, "Ingresaste al Sistema", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 }

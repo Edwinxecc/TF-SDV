@@ -1,5 +1,10 @@
 package ec.edu.uce.dominio;
 
+import ec.edu.uce.util.FileHelper;
+
+import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,5 +66,15 @@ public class Company {
     }
 
 
+    public boolean loginValidator (String user, String password){
+        if (user.length() < 3) return false;
+        if ((FileHelper.dataUsers[0].equals(user) && FileHelper.dataUsers[1].equals(password)) || (FileHelper.dataUsers[2].equals(user) && FileHelper.dataUsers[3].equals(password))) {
+            JOptionPane.showMessageDialog(null, "ingresaste cabecita de verga","Información", JOptionPane.INFORMATION_MESSAGE);
+            return true;
+        }else {
+            JOptionPane.showMessageDialog(null, "Credenciales incorrectas", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return false;
+    }
 
 }
