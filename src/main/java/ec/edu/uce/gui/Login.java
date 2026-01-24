@@ -24,12 +24,11 @@ public class Login {
                 String password = passwordText.getText();
                 //System.out.println(name + ": " + password); // solo para verificar la funcionalidad del boton
                 contador += 1;
-                com.loginValidator(name, password);
+                 com.loginValidator(name, password);
                 //System.out.println(contador);
                 if (contador >= 3) System.exit(0);
             }
         });
     }
-
 
 }

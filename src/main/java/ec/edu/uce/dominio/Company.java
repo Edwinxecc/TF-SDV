@@ -14,6 +14,8 @@ public class Company {
     private List<Product> products;
     private List<User> users;
 
+    public static boolean flag = false;
+
     private Company(String name) {
         this.name = name;
         this.products = new ArrayList<>();
@@ -70,6 +72,7 @@ public class Company {
         if (user.length() < 3) return false;
         if ((FileHelper.dataUsers[0].equals(user) && FileHelper.dataUsers[1].equals(password)) || (FileHelper.dataUsers[2].equals(user) && FileHelper.dataUsers[3].equals(password))) {
             JOptionPane.showMessageDialog(null, "ingresaste cabecita de verga","Información", JOptionPane.INFORMATION_MESSAGE);
+            flag = true;
             return true;
         }else {
             JOptionPane.showMessageDialog(null, "Credenciales incorrectas", "Información", JOptionPane.INFORMATION_MESSAGE);
