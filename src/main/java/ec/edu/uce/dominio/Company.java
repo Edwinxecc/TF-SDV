@@ -71,7 +71,7 @@ public class Company {
     public boolean loginValidator (String user, String password){
         if (user.length() < 3) return false;
         if ((FileHelper.dataUsers[0].equals(user) && FileHelper.dataUsers[1].equals(password)) || (FileHelper.dataUsers[2].equals(user) && FileHelper.dataUsers[3].equals(password))) {
-            JOptionPane.showMessageDialog(null, "ingresaste cabecita de verga","Información", JOptionPane.INFORMATION_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "ingresaste","Información", JOptionPane.INFORMATION_MESSAGE);
             flag = true;
             return true;
         }else {

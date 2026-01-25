@@ -13,20 +13,29 @@ public class Login {
     private JButton goButton;
     private JTextField passwordText;
 
+    private LoginListener listener;
+
 
     Company com = Company.getInstance();
 
-    public Login(){
+    public Login(LoginListener listener){
+        this.listener = listener;
+
         goButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String name = textName.getText();
                 String password = passwordText.getText();
-                //System.out.println(name + ": " + password); // solo para verificar la funcionalidad del boton
-                contador += 1;
-                 com.loginValidator(name, password);
-                //System.out.println(contador);
-                if (contador >= 3) System.exit(0);
+
+                Company.flag = com.loginValidator(name, password);
+
+                if (Company.flag) {
+                    // Avisamos al Main que el login fue exitoso
+                    if (listener != null) listener.onLoginSuccess();
+                } else {
+                    contador += 1;
+                    if (contador >= 3) System.exit(0);
+                }
             }
         });
     }
