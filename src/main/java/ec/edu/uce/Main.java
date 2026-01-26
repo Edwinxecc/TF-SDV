@@ -5,8 +5,10 @@ import ec.edu.uce.dominio.Product;
 import ec.edu.uce.dominio.User;
 import ec.edu.uce.gui.Login;
 import ec.edu.uce.gui.LoginListener;
+import ec.edu.uce.gui.MainPage;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,7 +22,8 @@ public class Main {
             public void onLoginSuccess() {
                 frame.dispose();
 
-                JOptionPane.showMessageDialog(null, "Login Correcto. Abriendo sistema...", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                //JOptionPane.showMessageDialog(null, "Login Correcto. Abriendo sistema...", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                mainPanel();
             }
         });
 
@@ -32,12 +35,17 @@ public class Main {
         frame.setResizable(false);
         frame.setSize(500,500);
         frame.setVisible(true);
-
-        // pagina pricipal
-
-        System.out.println("In Main" + Company.flag);
-        if (Company.flag) {
-            JOptionPane.showMessageDialog(null, "new Window", "Información", JOptionPane.INFORMATION_MESSAGE);
-        }
     }
+
+    public static void mainPanel(){
+        JFrame mainFrame = new JFrame("Sistema de Ventas");
+        mainFrame.setContentPane(new MainPage().mainPanel);
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.pack();
+        mainFrame.setLocationRelativeTo(null);
+        mainFrame.setResizable(false);
+        mainFrame.setSize(950, 600);
+        mainFrame.setVisible(true);
+    }
+
 }
