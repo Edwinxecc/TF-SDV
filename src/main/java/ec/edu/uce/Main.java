@@ -46,6 +46,8 @@ public class Main {
         mainFrame.setResizable(false);
         mainFrame.setSize(950, 600);
         mainFrame.setVisible(true);
+
+
     }
 
 }
