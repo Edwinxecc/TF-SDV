@@ -17,6 +17,7 @@ public class cardPage {
     private double total;
 
     public static boolean buyWithCard;
+    public static String cardNumberShare;
 
     public cardPage(double total){
         this.total = total;
@@ -33,6 +34,7 @@ public class cardPage {
 
                     if ((month >= 1 && month <= 12) && (yearProvide >= currentYear) && lengthOfCode == 3){
                         buyWithCard = validarTarjeta(cardTextField.getText().trim());
+                        if (buyWithCard) cardNumberShare = cardTextField.getText().trim(); // despues que la tarjeta sea valida, comparto el numero
                         JOptionPane.showMessageDialog(null, "Compra Exitosa!", "Exito", JOptionPane.INFORMATION_MESSAGE);
                         SwingUtilities.getWindowAncestor(cardPanel).dispose(); // con esto cierro mi ventanita
                     }else if(yearProvide < currentYear || (yearProvide == currentYear && month < currentMonth)){

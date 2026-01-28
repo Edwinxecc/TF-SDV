@@ -32,7 +32,8 @@ public class ticketPage {
         efectivoTextField.setText(efectivo + "$");
         double retValue = efectivo - total;
         if (retValue >= 0) cambioTextField.setText(String.format("%.2f$", retValue));
-
+        String cardPrivate = cardPage.cardNumberShare.substring(cardPage.cardNumberShare.length() - 5);
+        numTargetaTextField.setText("*********"+ cardPrivate);
     }
 
     public void llenarDescripsionAndPrice (List<Product> buyProduct){
