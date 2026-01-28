@@ -28,7 +28,7 @@ public class ticketPage {
         for (Product prd: buyProduct){
             total += prd.getPrice();
         }
-        totalTextField.setText(total + "$");
+        totalTextField.setText(String.format("%.2f$", total));
         efectivoTextField.setText(efectivo + "$");
         double retValue = efectivo - total;
         if (retValue >= 0) cambioTextField.setText(String.format("%.2f$", retValue));

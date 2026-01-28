@@ -29,9 +29,13 @@ public class cardPage {
                     byte month = Byte.parseByte(monthTextField.getText().trim());
                     int yearProvide = Integer.parseInt(yearTextField.getText().trim());
 
-                    if ((month >= 1 && month <= 12) && yearProvide >= currentYear){
+                    int lengthOfCode = secureCodeTextField.getText().trim().length();
+
+                    if ((month >= 1 && month <= 12) && (yearProvide >= currentYear) && lengthOfCode == 3){
                         buyWithCard = validarTarjeta(cardTextField.getText().trim());
-                    }else if(month <= currentMonth && yearProvide <= currentYear){
+                        JOptionPane.showMessageDialog(null, "Compra Exitosa!", "Exito", JOptionPane.INFORMATION_MESSAGE);
+                        SwingUtilities.getWindowAncestor(cardPanel).dispose(); // con esto cierro mi ventanita
+                    }else if(yearProvide < currentYear || (yearProvide == currentYear && month < currentMonth)){
                         JOptionPane.showMessageDialog(null, "¡Tarjeta Invalida!", "Tarjeta Invalida", JOptionPane.INFORMATION_MESSAGE);
                     }
 
@@ -48,6 +52,7 @@ public class cardPage {
 
     }
 
+    // Algoritmo de Luhn | creo
     public static boolean validarTarjeta(String numero) {
         int suma = 0;
         boolean alternar = false;
@@ -63,7 +68,6 @@ public class cardPage {
             suma += n;
             alternar = !alternar;
         }
-
         return (suma % 10 == 0);
     }
 

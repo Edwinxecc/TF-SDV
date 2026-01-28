@@ -115,9 +115,16 @@ public class MainPage {
         ticketCompraButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String texto = efectivoTextField.getText();
-                double efectivo = Double.parseDouble(texto);
-                ticketPanel(buyProducts, efectivo);
+
+                if(cardPage.buyWithCard){
+                    efectivoTextField.setText("Tarjeta");
+                    ticketPanel(buyProducts, 0.0);
+                }else {
+                    String texto = efectivoTextField.getText().trim();
+                    double efectivo = Double.parseDouble(texto);
+                    ticketPanel(buyProducts, efectivo);
+                }
+
             }
         });
         PAGOTARJETAButton.addActionListener(new ActionListener() {
@@ -155,7 +162,7 @@ public class MainPage {
         cardPage.pack();
         cardPage.setLocationRelativeTo(null);
         cardPage.setResizable(false);
-        cardPage.setSize(400, 400);
+        cardPage.setSize(450, 400);
         cardPage.setVisible(true);
     }
 
