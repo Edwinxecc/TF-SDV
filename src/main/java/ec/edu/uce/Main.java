@@ -22,8 +22,6 @@ public class Main {
             @Override
             public void onLoginSuccess() {
                 frame.dispose();
-
-
                 //JOptionPane.showMessageDialog(null, "Login Correcto. Abriendo sistema...", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 mainPanel();
             }

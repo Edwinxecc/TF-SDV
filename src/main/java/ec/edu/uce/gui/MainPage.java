@@ -119,6 +119,7 @@ public class MainPage {
                 if(cardPage.buyWithCard){
                     efectivoTextField.setText("Tarjeta");
                     ticketPanel(buyProducts, 0.0);
+                    //vueltaTextField.setText("Tarjeta");
                 }else {
                     String texto = efectivoTextField.getText().trim();
                     double efectivo = Double.parseDouble(texto);
@@ -147,7 +148,7 @@ public class MainPage {
     public static void ticketPanel(List<Product> products, double efectivo){
         JFrame ticketFrame = new JFrame("Ticket de Compra");
         ticketFrame.setContentPane(new ticketPage(products, efectivo).ticketPanel);
-        ticketFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ticketFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ticketFrame.pack();
         ticketFrame.setLocationRelativeTo(null);
         ticketFrame.setResizable(false);
