@@ -29,16 +29,19 @@ public class ticketPage {
             total += prd.getPrice();
         }
         totalTextField.setText(String.format("%.2f$", total));
+
+
         if (cardPage.buyWithCard){
             efectivoTextField.setText("Tarjeta");
             cambioTextField.setText("Tarjeta");
+            String cardPrivate = cardPage.cardNumberShare.substring(cardPage.cardNumberShare.length() - 5);
+            numTargetaTextField.setText("*********"+ cardPrivate);
         }else {
             efectivoTextField.setText(efectivo + "$");
             double retValue = efectivo - total;
             if (retValue >= 0) cambioTextField.setText(String.format("%.2f$", retValue));
+            numTargetaTextField.setText("*****************");
         }
-        String cardPrivate = cardPage.cardNumberShare.substring(cardPage.cardNumberShare.length() - 5);
-        numTargetaTextField.setText("*********"+ cardPrivate);
     }
 
     public void llenarDescripsionAndPrice (List<Product> buyProduct){
