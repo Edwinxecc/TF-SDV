@@ -35,14 +35,6 @@ public class Company {
         return products;
     }
 
-    public Boolean createProduct(String name, int stock){
-        if (name.length() >= 2 && stock > 0){
-            new Product(name, stock);
-            return true;
-        }
-        return false;
-    }
-
     public void createProduct(Product product){
         if(product == null) return;
         products.add(product);

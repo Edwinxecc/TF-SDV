@@ -1,11 +1,10 @@
 package ec.edu.uce;
 
 import ec.edu.uce.dominio.Company;
-import ec.edu.uce.dominio.Product;
-import ec.edu.uce.dominio.User;
 import ec.edu.uce.gui.Login;
 import ec.edu.uce.gui.LoginListener;
 import ec.edu.uce.gui.MainPage;
+import ec.edu.uce.util.FileHelper;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,12 +14,15 @@ public class Main {
 
         Company com = Company.getInstance();
 
-        JFrame frame = new JFrame("Login");
+        // creacion del archivo
+        //FileHelper.createFile();
 
+        JFrame frame = new JFrame("Login");
         Login loginUI = new Login(new LoginListener() {
             @Override
             public void onLoginSuccess() {
                 frame.dispose();
+
 
                 //JOptionPane.showMessageDialog(null, "Login Correcto. Abriendo sistema...", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 mainPanel();
@@ -46,8 +48,6 @@ public class Main {
         mainFrame.setResizable(false);
         mainFrame.setSize(950, 600);
         mainFrame.setVisible(true);
-
-
     }
 
 }

@@ -4,28 +4,41 @@ import java.util.Random;
 public class Product {
     private String name;
     private String code;
-    private int stock;
+    private double price;
 
-    public Product(String name, int stock){
+    public Product(String name, double price){
+        this.code = genCode();
         this.name = name;
-        this.code = "17PE";
-        this.stock = stock;
+        this.price = price;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getStock() {
-        return stock;
-    }
-
     public String getCode() {
         return code;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
-        return code + " | " + name + " | " + stock;
+        return code + " | " + name;
     }
+
+    private String genCode() {
+        String randomCode = "";
+        Random random = new Random();
+
+        while (randomCode.length() < 6) {
+            int number = random.nextInt(10); // generar cada vez
+            randomCode += number;
+        }
+
+        return randomCode;
+    }
+
 }
