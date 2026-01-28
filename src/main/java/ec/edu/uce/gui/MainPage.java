@@ -133,7 +133,7 @@ public class MainPage {
         for (Product prd: buyProducts){
             total += prd.getPrice();
         }
-        totalTextField.setText("TOT: " + total + "$");
+        totalTextField.setText("TOT: " + String.format("%.2f$", total));
         totalAux = total;
     }
 
@@ -155,7 +155,7 @@ public class MainPage {
         cardPage.pack();
         cardPage.setLocationRelativeTo(null);
         cardPage.setResizable(false);
-        cardPage.setSize(355, 400);
+        cardPage.setSize(400, 400);
         cardPage.setVisible(true);
     }
 

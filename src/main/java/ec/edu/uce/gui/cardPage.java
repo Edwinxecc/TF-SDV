@@ -21,7 +21,7 @@ public class cardPage {
     public cardPage(double total){
         this.total = total;
 
-        totalTextField.setText(total + " USD");
+        totalTextField.setText(String.format("%.2f$", total) + " USD");
         completarCompraButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

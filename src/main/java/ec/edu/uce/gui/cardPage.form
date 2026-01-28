@@ -39,7 +39,7 @@
       <component id="92cdf" class="javax.swing.JTextField" binding="cardTextField">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+            <preferred-size width="120" height="-1"/>
           </grid>
         </constraints>
         <properties>
