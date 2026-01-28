@@ -96,6 +96,7 @@ public class MainPage {
         calVueltaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                cardPage.buyWithCard = false;
                 String texto = efectivoTextField.getText();
                 double efectivo = Double.parseDouble(texto);
 
@@ -159,7 +160,7 @@ public class MainPage {
     public static void cardPageInicializer(double total){
         JFrame cardPage = new JFrame();
         cardPage.setContentPane(new cardPage(total).cardPanel);
-        cardPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        cardPage.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         cardPage.pack();
         cardPage.setLocationRelativeTo(null);
         cardPage.setResizable(false);
