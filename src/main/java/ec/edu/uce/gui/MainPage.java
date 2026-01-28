@@ -26,6 +26,8 @@ public class MainPage {
     private JButton ticketCompraButton;
     private JButton lectorButton;
 
+    private double totalAux = 0.0;
+
     public MainPage() {
 
         List<Product> buyProducts = new ArrayList<>();
@@ -118,6 +120,12 @@ public class MainPage {
                 ticketPanel(buyProducts, efectivo);
             }
         });
+        PAGOTARJETAButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardPageInicializer(totalAux);
+            }
+        });
     }
 
     public void actualizarTotal(List<Product> buyProducts){
@@ -126,6 +134,7 @@ public class MainPage {
             total += prd.getPrice();
         }
         totalTextField.setText("TOT: " + total + "$");
+        totalAux = total;
     }
 
     public static void ticketPanel(List<Product> products, double efectivo){
@@ -137,6 +146,17 @@ public class MainPage {
         ticketFrame.setResizable(false);
         ticketFrame.setSize(425, 605);
         ticketFrame.setVisible(true);
+    }
+
+    public static void cardPageInicializer(double total){
+        JFrame cardPage = new JFrame();
+        cardPage.setContentPane(new cardPage(total).cardPanel);
+        cardPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        cardPage.pack();
+        cardPage.setLocationRelativeTo(null);
+        cardPage.setResizable(false);
+        cardPage.setSize(355, 400);
+        cardPage.setVisible(true);
     }
 
 }

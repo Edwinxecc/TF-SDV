@@ -22,6 +22,9 @@ public class ticketPage {
         this.efectivo = efectivo;
 
         double total = 0.0;
+
+        llenarDescripsionAndPrice(buyProduct);
+
         for (Product prd: buyProduct){
             total += prd.getPrice();
         }
@@ -30,5 +33,16 @@ public class ticketPage {
         double retValue = efectivo - total;
         if (retValue >= 0) cambioTextField.setText(String.format("%.2f$", retValue));
 
+    }
+
+    public void llenarDescripsionAndPrice (List<Product> buyProduct){
+        String descriptions = "";
+        String price = "";
+        for (Product prd: buyProduct){
+            descriptions += prd.getName() + "\r\n";
+            price += prd.getPrice() + "\r\n";
+        }
+        textDescripsion.setText(descriptions);
+        textPrecio.setText(price);
     }
 }
