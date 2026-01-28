@@ -73,7 +73,7 @@
           <text value="XXX"/>
         </properties>
       </component>
-      <component id="762a2" class="javax.swing.JTextField" binding="endDateTextFIeld">
+      <component id="762a2" class="javax.swing.JTextField" binding="monthTextField">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="80" height="-1"/>
@@ -138,7 +138,7 @@
           <text value="/"/>
         </properties>
       </component>
-      <component id="edfc6" class="javax.swing.JTextField" binding="AAAATextField" default-binding="true">
+      <component id="edfc6" class="javax.swing.JTextField" binding="yearTextField">
         <constraints>
           <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="80" height="-1"/>
