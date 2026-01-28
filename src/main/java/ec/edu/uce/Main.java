@@ -4,6 +4,7 @@ import ec.edu.uce.dominio.Company;
 import ec.edu.uce.gui.Login;
 import ec.edu.uce.gui.LoginListener;
 import ec.edu.uce.gui.MainPage;
+import ec.edu.uce.gui.ticketPage;
 import ec.edu.uce.util.FileHelper;
 
 import javax.swing.*;
@@ -49,5 +50,7 @@ public class Main {
         mainFrame.setSize(950, 600);
         mainFrame.setVisible(true);
     }
+
+
 
 }

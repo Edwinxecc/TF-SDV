@@ -1,5 +1,6 @@
 package ec.edu.uce.gui;
 
+import ec.edu.uce.Main;
 import ec.edu.uce.dominio.Product;
 import ec.edu.uce.util.FileHelper;
 
@@ -18,11 +19,12 @@ public class MainPage {
     private JTextField textCodigoBarra;
     private JButton PAGOTARJETAButton;
     private JTextField efectivoTextField;
-    private JButton button2;
-    private JTextField VUELTATextField;
+    private JButton calVueltaButton;
+    private JTextField vueltaTextField;
     private JButton eliminarButton;
     private JTextField totalTextField;
-    private JButton TICKETDECOMPRAButton;
+    private JButton ticketCompraButton;
+    private JButton lectorButton;
 
     public MainPage() {
 
@@ -74,10 +76,10 @@ public class MainPage {
                     buyProducts.remove(productsTable.getSelectedRow()); // se elimina por indice de la lista de compras
                     tableModel.removeRow(productsTable.getSelectedRow());// esto solo es para la visibilidad de la tabla
                     actualizarTotal(buyProducts);
-                    for (Product prd: buyProducts){
-                        System.out.println(prd.getCode() + " | " + prd.getName() + " | " + prd.getPrice());
-                    }
-                    System.out.println("_________________________________________________");
+//                    for (Product prd: buyProducts){
+//                        System.out.println(prd.getCode() + " | " + prd.getName() + " | " + prd.getPrice());
+//                    }
+//                    System.out.println("_________________________________________________");
                 }
             }
         });
@@ -89,6 +91,33 @@ public class MainPage {
                 efectivoTextField.setText("");
             }
         });
+        calVueltaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String texto = efectivoTextField.getText();
+                double efectivo = Double.parseDouble(texto);
+
+                double buyCoste = 0.0;
+                for (Product prd: buyProducts){
+                    buyCoste += prd.getPrice();
+                }
+
+                double retValue = efectivo - buyCoste;
+                if (retValue <= 0) {
+                    JOptionPane.showMessageDialog(null, "Efectivo Insuficiente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+                }else {
+                    vueltaTextField.setText(String.format("%.2f$", retValue));
+                }
+            }
+        });
+        ticketCompraButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String texto = efectivoTextField.getText();
+                double efectivo = Double.parseDouble(texto);
+                ticketPanel(buyProducts, efectivo);
+            }
+        });
     }
 
     public void actualizarTotal(List<Product> buyProducts){
@@ -97,6 +126,17 @@ public class MainPage {
             total += prd.getPrice();
         }
         totalTextField.setText("TOT: " + total + "$");
+    }
+
+    public static void ticketPanel(List<Product> products, double efectivo){
+        JFrame ticketFrame = new JFrame("Ticket de Compra");
+        ticketFrame.setContentPane(new ticketPage(products, efectivo).ticketPanel);
+        ticketFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ticketFrame.pack();
+        ticketFrame.setLocationRelativeTo(null);
+        ticketFrame.setResizable(false);
+        ticketFrame.setSize(425, 605);
+        ticketFrame.setVisible(true);
     }
 
 }

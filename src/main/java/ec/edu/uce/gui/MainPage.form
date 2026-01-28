@@ -40,15 +40,6 @@
           <text value="CÓDIGO BARRAS"/>
         </properties>
       </component>
-      <component id="22c73" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font size="18"/>
-          <text value="LECTOR CÓDIGO BARRAS"/>
-        </properties>
-      </component>
       <component id="d5761" class="javax.swing.JButton" binding="PAGOTARJETAButton" default-binding="true">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -67,7 +58,7 @@
       </component>
       <component id="23769" class="javax.swing.JTextField" binding="efectivoTextField">
         <constraints>
-          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -76,7 +67,7 @@
           <text value="EFECTIVO"/>
         </properties>
       </component>
-      <component id="ec74a" class="javax.swing.JButton" binding="button2" default-binding="true">
+      <component id="ec74a" class="javax.swing.JButton" binding="calVueltaButton">
         <constraints>
           <grid row="6" column="3" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -84,9 +75,9 @@
           <text value="&gt;&gt;"/>
         </properties>
       </component>
-      <component id="63891" class="javax.swing.JTextField" binding="VUELTATextField" default-binding="true">
+      <component id="63891" class="javax.swing.JTextField" binding="vueltaTextField">
         <constraints>
-          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -133,13 +124,22 @@
         </constraints>
         <properties/>
       </component>
-      <component id="653b0" class="javax.swing.JButton" binding="TICKETDECOMPRAButton" default-binding="true">
+      <component id="653b0" class="javax.swing.JButton" binding="ticketCompraButton">
         <constraints>
           <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font size="18"/>
           <text value="TICKET DE COMPRA"/>
+        </properties>
+      </component>
+      <component id="5bd33" class="javax.swing.JButton" binding="lectorButton">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font size="18"/>
+          <text value="LECTOR CÓDIGO BARRAS"/>
         </properties>
       </component>
     </children>
