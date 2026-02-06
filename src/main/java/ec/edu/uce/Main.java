@@ -4,6 +4,7 @@ import ec.edu.uce.dominio.Company;
 import ec.edu.uce.gui.Login;
 import ec.edu.uce.gui.LoginListener;
 import ec.edu.uce.gui.MainPage;
+import ec.edu.uce.util.FileHelper;
 
 
 import javax.swing.*;
@@ -11,7 +12,7 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
-
+        FileHelper.createFile();
         Company com = Company.getInstance();
 
         // creacion del archivo

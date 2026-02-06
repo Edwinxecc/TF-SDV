@@ -98,18 +98,22 @@ public class MainPage {
             public void actionPerformed(ActionEvent e) {
                 cardPage.buyWithCard = false;
                 String texto = efectivoTextField.getText();
-                double efectivo = Double.parseDouble(texto);
+                try {
+                    double efectivo = Double.parseDouble(texto);
+                    double buyCoste = 0.0;
+                    for (Product prd: buyProducts){
+                        buyCoste += prd.getPrice();
+                    }
 
-                double buyCoste = 0.0;
-                for (Product prd: buyProducts){
-                    buyCoste += prd.getPrice();
-                }
-
-                double retValue = efectivo - buyCoste;
-                if (retValue <= 0) {
-                    JOptionPane.showMessageDialog(null, "Efectivo Insuficiente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-                }else {
-                    vueltaTextField.setText(String.format("%.2f$", retValue));
+                    double retValue = efectivo - buyCoste;
+                    if (retValue <= 0) {
+                        JOptionPane.showMessageDialog(null, "Efectivo Insuficiente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+                    }else {
+                        vueltaTextField.setText(String.format("%.2f$", retValue));
+                    }
+                } catch (Exception err){
+                    JOptionPane.showMessageDialog(null, ("Error " + err.getMessage()), "Error", JOptionPane.ERROR_MESSAGE);
+                    efectivoTextField.setText("");
                 }
             }
         });
