@@ -52,12 +52,12 @@ public class FileHelper {
             File copyProducts = new File(ruteOfProducts);
 
             if (!copyProducts.exists()) {
-                return copyProducts.createNewFile();
+                copyProducts.createNewFile();
             }
 
             writeDataProducts();
 
-            return true; // ya existe, pero todo está bien
+            return true;
         } catch (IOException e) {
             JOptionPane.showMessageDialog(
                     null,
