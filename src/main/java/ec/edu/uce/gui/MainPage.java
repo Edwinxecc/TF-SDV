@@ -1,6 +1,7 @@
 package ec.edu.uce.gui;
 
 import ec.edu.uce.Main;
+import ec.edu.uce.dominio.Company;
 import ec.edu.uce.dominio.Product;
 import ec.edu.uce.util.FileHelper;
 
@@ -25,6 +26,7 @@ public class MainPage {
     private JTextField totalTextField;
     private JButton ticketCompraButton;
     private JButton lectorButton;
+    private JLabel bienvenidaLabel;
 
     private double totalAux = 0.0;
 
@@ -41,6 +43,9 @@ public class MainPage {
         model.setColumnIdentifiers(new String[]{"Codigo", "Nombre", "P. Unit"});
         productsTable.setModel(model);
         // System.out.println("Hola xd");
+
+
+        bienvenidaLabel.setText("Bienvenido, " + Company.userAcces);
 
         buttonRandomCode.addMouseListener(new MouseAdapter() {
 
@@ -106,6 +111,7 @@ public class MainPage {
                     }
 
                     double retValue = efectivo - buyCoste;
+
                     if (retValue <= 0) {
                         JOptionPane.showMessageDialog(null, "Efectivo Insuficiente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                     }else {
@@ -120,8 +126,10 @@ public class MainPage {
         ticketCompraButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                if(cardPage.buyWithCard){
+                String isString = efectivoTextField.getText();
+                if (isString.equalsIgnoreCase("efectivo") || isString.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Selecciona un producto y Paga con tarjeta o efectivo", "Información", JOptionPane.INFORMATION_MESSAGE);
+                }else if(cardPage.buyWithCard){
                     efectivoTextField.setText("Tarjeta");
                     ticketPanel(buyProducts, 0.0);
                     //vueltaTextField.setText("Tarjeta");

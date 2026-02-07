@@ -1,5 +1,6 @@
 package ec.edu.uce.dominio;
 
+import ec.edu.uce.gui.Login;
 import ec.edu.uce.util.FileHelper;
 
 import javax.swing.*;
@@ -12,12 +13,16 @@ public class Company {
     private static Company instance;
     private String name;
     private List<Product> products;
+    public static List<User> users;
+
+    public static String userAcces;
 
     public static boolean flag = false;
 
     private Company(String name) {
         this.name = name;
         this.products = new ArrayList<>();
+        users = FileHelper.reedUsers();
     }
 
     public static Company getInstance(){
@@ -41,12 +46,20 @@ public class Company {
     }
 
     public boolean loginValidator (String user, String password){
-        if (user.length() < 3) return false;
-        if ((FileHelper.dataUsers[0].equals(user) && FileHelper.dataUsers[1].equals(password)) || (FileHelper.dataUsers[2].equals(user) && FileHelper.dataUsers[3].equals(password))) {
-            //JOptionPane.showMessageDialog(null, "ingresaste","Información", JOptionPane.INFORMATION_MESSAGE);
-            return true;
+        if (Company.users.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ningun usurio registrado", "Registro necesario", JOptionPane.INFORMATION_MESSAGE);
         }else {
-            JOptionPane.showMessageDialog(null, "Credenciales incorrectas", "Información", JOptionPane.INFORMATION_MESSAGE);
+            for (User usr: Company.users){
+                if (user.equals(usr.getName()) && password.equals(usr.getPassword())){
+                    userAcces = usr.getName();
+                    return true;
+                }else {
+                    User lastUser = Company.users.getLast();
+                    if (lastUser.getName().equals(usr.getName())){
+                        JOptionPane.showMessageDialog(null, "Credenciales incorrectas", "Información", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
+            }
         }
         return false;
     }

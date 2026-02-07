@@ -39,6 +39,10 @@ public class cardPage {
                         SwingUtilities.getWindowAncestor(cardPanel).dispose(); // con esto cierro mi ventanita
                     }else if(yearProvide < currentYear || (yearProvide == currentYear && month < currentMonth)){
                         JOptionPane.showMessageDialog(null, "¡Tarjeta Invalida!", "Tarjeta Invalida", JOptionPane.INFORMATION_MESSAGE);
+                        cardTextField.setText("");
+                        monthTextField.setText("");
+                        yearTextField.setText("");
+                        secureCodeTextField.setText("");
                     }
 
                 } catch (NumberFormatException err) {
