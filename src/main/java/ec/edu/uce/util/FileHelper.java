@@ -4,13 +4,19 @@ import ec.edu.uce.dominio.Company;
 import ec.edu.uce.dominio.Product;
 import ec.edu.uce.dominio.User;
 
-import java.io.File;
-import java.io.IOException;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import java.util.Map;
+import java.awt.*;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.io.InputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 
 
 public class FileHelper {
@@ -142,6 +148,27 @@ public class FileHelper {
         }
 
         return usuarios;
+    }
+
+    public static void descargarLogo(String urlGithub, String nombreArchivoLocal) {
+        try {
+            URL url = new URL(urlGithub);
+            Path destino = Paths.get(nombreArchivoLocal);
+
+            // Verificamos si no es un archivo regular (si no existe o es carpeta)
+            if (!Files.isRegularFile(destino)) {
+                // Abrimos el flujo de datos y copiamos al destino
+                try (InputStream in = url.openStream()) {
+                    Files.copy(in, destino, StandardCopyOption.REPLACE_EXISTING);
+                }
+
+                //System.out.println("Archivo guardado correctamente en: " + destino.toAbsolutePath());
+                System.out.println("[OK] Img");
+            }
+
+        } catch (IOException e) {
+            System.err.println("Error crítico durante la descarga: " + e.getMessage());
+        }
     }
 
 }

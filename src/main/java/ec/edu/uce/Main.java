@@ -5,6 +5,9 @@ import ec.edu.uce.gui.Login;
 import ec.edu.uce.gui.LoginListener;
 import ec.edu.uce.gui.MainPage;
 import ec.edu.uce.util.FileHelper;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 
 import javax.swing.*;
@@ -12,6 +15,13 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
+        String miUrl = "https://raw.githubusercontent.com/Edwinxecc/TF-SDV/main/logo_sv.png";
+        String nombreLocal = "logo_sv.png";
+        Path ruta = Paths.get(nombreLocal);
+        if (!Files.isRegularFile(ruta)) {
+            FileHelper.descargarLogo(miUrl, nombreLocal);
+        }
+
         FileHelper.createFile();
         Company com = Company.getInstance();
 
